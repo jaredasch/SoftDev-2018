@@ -1,3 +1,14 @@
+# Team Angry Birds - Jared Asch, Imad Belkebir
+# SoftDev1 pd7
+# K#06 -- StI/O: Divine your Destiny!
+# 2018-09-13
+
+SoftDev1 pd<p>
+
+K<n> -- <Title/Topic/Summary>
+
+<yyyy>-<mm>-<dd> 
+
 def readlines():
     f = open('occupations.csv', 'r')
     text = f.read().strip().split('\n')
