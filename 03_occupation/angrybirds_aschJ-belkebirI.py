@@ -14,6 +14,6 @@ def linesToDict(lines):
         else:
             job = line.split(',')[0]
             info_dict[job] = float(line.split(',')[1])
-    return
+    return info_dict
 
 print(linesToDict(readlines()[1:]))
