@@ -3,11 +3,13 @@
 # K#06 -- StI/O: Divine your Destiny!
 # 2018-09-13
 
+from random import random
+
 def readlines():
     f = open('occupations.csv', 'r')
     text = f.read().strip().split('\n')
     f.close()
-    return text
+    return text[1:][:-1]
 
 def linesToDict(lines):
     info_dict = {}
@@ -21,4 +23,19 @@ def linesToDict(lines):
             info_dict[job] = float(line.split(',')[1])
     return info_dict
 
-print(linesToDict(readlines()[1:]))
+def pickOccupation(occupations):
+    percents = list(occupations.values())
+    occs = list(occupations.keys())
+    rand = random() * 99.8
+    percentTot = percents[0];
+    index = 0;
+    while(percentTot < rand):
+        index += 1
+        percentTot += percents[index]
+    return (occs[index])
+
+def randomOccupation():
+    return pickOccupation(linesToDict(readlines()))
+
+print(randomOccupation())
+
