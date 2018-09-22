@@ -5,7 +5,16 @@
 </head>
 <body>
 	<table>
+		<tr>
+			<th>Occuptation</th>
+			<th>Percentage</th>
+		</tr>
 		{% for key in dict %}
+			<tr>
+				<td>{{ key }}</td>
+				<td>{{ dict[key] }}</td>
+			</tr>
+		{% endfor %}
 	</table>
 <body>
 </html>
