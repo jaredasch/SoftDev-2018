@@ -9,10 +9,10 @@
 			<th>Occuptation</th>
 			<th>Percentage</th>
 		</tr>
-		{% for key in dict %}
+		{% for key in jobs %}
 			<tr>
 				<td>{{ key }}</td>
-				<td>{{ dict[key] }}</td>
+				<td>{{ jobs[key] }}</td>
 			</tr>
 		{% endfor %}
 	</table>

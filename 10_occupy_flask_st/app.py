@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from random import random
 app = Flask(__name__)
 
 def readlines():
@@ -19,10 +20,10 @@ def linesToDict(lines):
             info_dict[job] = float(line.split(',')[1])
     return info_dict
 
-def pickOccupation(occupations):
+def random_occupation(occupations):
     percents = list(occupations.values())
     occs = list(occupations.keys())
-    rand = random() * occupations["Total"]
+    rand = random() * 99.8
     percentTot = percents[0];
     index = 0;
     while(percentTot < rand):
@@ -36,5 +37,6 @@ def occupations():
 	return render_template("occupations.html", jobs=jobs_dict, select=random_occupation(jobs_dict))
 
 if __name__ == "__main__":
+	print(linesToDict(readlines()))
 	app.debug = True
 	app.run()
