@@ -13,7 +13,7 @@ def linesToDict(lines):
     for line in lines:
         if line[0] is '\"':
             end = line[1:].find('\"')
-            job = line[1:end]
+            job = line[1:end+1]
             info_dict[job] = float(line[end+3:])
         else:
             job = line.split(',')[0]
