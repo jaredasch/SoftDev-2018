@@ -5,7 +5,7 @@
 
 from flask import Flask, render_template
 import csv 
-from random import choice   # importing all necessary functions
+from random import random   # importing all necessary functions
 
 app = Flask(__name__)
 
@@ -16,17 +16,22 @@ def parse_jobs_csv():
     r = 0
     for row in reader:  # reads every line except the first(header) in the csv file and adds the job/percentage to the dict
         if r != 0:
-           jobs_dict[row[0]] = row[1]
+           jobs_dict[row[0]] = float(row[1])
         else:
             header = row    # adds the header to the header list
         r += 1
     return header, jobs_dict
 
-def get_rand(jobs):  # randomly choose a job
-    keys = []
-    for key in jobs.keys():
-        keys.append(key)    # create a list of keys(jobs)
-    return choice(keys[0:-1])   # choose a random job from list
+def rand_job(occupations):
+    percents = list(occupations.values())
+    occs = list(occupations.keys())
+    rand = random() * 99.8
+    percentTot = percents[0];
+    index = 0;
+    while(percentTot < rand):
+        index += 1
+        percentTot += percents[index]
+    return (occs[index])   # choose a random job from list
 
 header, jobs = parse_jobs_csv()
 
@@ -36,7 +41,7 @@ def home(): # creates an unnecessary home page with a link to assignment
 
 @app.route("/occupations") 
 def occupations(): # uses template to create the table
-    return render_template('occupations.html', random = get_rand(jobs), jobs = jobs, header = header)
+    return render_template('occupations.html', random = rand_job(jobs), jobs = jobs, header = header)
 
 if __name__ == "__main__": 
     app.debug = True    # Set False for production
