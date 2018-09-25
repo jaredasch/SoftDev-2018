@@ -28,13 +28,14 @@ def get_rand(jobs):  # randomly choose a job
         keys.append(key)    # create a list of keys(jobs)
     return choice(keys[0:-1])   # choose a random job from list
 
+header, jobs = parse_jobs_csv()
+
 @app.route("/")
 def home(): # creates an unnecessary home page with a link to assignment
     return "<a href = occupations>Click here for occupations</a>"
 
 @app.route("/occupations") 
 def occupations(): # uses template to create the table
-    header, jobs = parse_jobs_csv()
     return render_template('occupations.html', random = get_rand(jobs), jobs = jobs, header = header)
 
 if __name__ == "__main__": 
