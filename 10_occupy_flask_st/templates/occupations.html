@@ -4,11 +4,11 @@
 	<title>Occupations</title>
 </head>
 <body>
-	<h1>Randomly selected job: {{ select }} </h1>
+  <u>Random Occupation:</u> {{ random }}
 	<table>
 		<tr>
-			<th>Occuptation</th>
-			<th>Percentage</th>
+			<th>{{ header[0] }}</th>
+			<th>{{ header[1] }}</th>
 		</tr>
 		{% for key in jobs %}
 			<tr>

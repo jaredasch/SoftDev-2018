@@ -1,47 +1,42 @@
-# Peglegs - Jared Asch, Vincent Lin
-# SoftDev1 pd7
-# K10 - Jinja Tuning
+# Team Peglegs -- Jared Asch, Vincent Lin
+# SoftDev pd7
+# K10 -- Jinja Tuning
 # 2018-09-24
 
 from flask import Flask, render_template
-from random import random
+import csv 
+from random import choice   # importing all necessary functions
+
 app = Flask(__name__)
 
-def readlines():
-    f = open('data/occupations.csv', 'r')
-    text = f.read().strip().split('\n')
-    f.close()
-    return text[1:][:-1]
-
-def linesToDict(lines):
-    info_dict = {}
-    for line in lines:
-        if line[0] is '\"':
-            end = line[1:].find('\"')
-            job = line[1:end+1]
-            info_dict[job] = float(line[end+3:])
+def parse_jobs_csv():
+    jobs_dict = {}    # creates dictionary of jobs and percentages
+    header = [] # the first line of the csv file and the table heading
+    reader = csv.reader(open('data/occupations.csv', 'r'))
+    r = 0
+    for row in reader:  # reads every line except the first(header) in the csv file and adds the job/percentage to the dict
+        if r != 0:
+           jobs_dict[row[0]] = row[1]
         else:
-            job = line.split(',')[0]
-            info_dict[job] = float(line.split(',')[1])
-    return info_dict
+            header = row    # adds the header to the header list
+        r += 1
+    return header, jobs_dict
 
-def random_occupation(occupations):
-    percents = list(occupations.values())
-    occs = list(occupations.keys())
-    rand = random() * 99.8
-    percentTot = percents[0];
-    index = 0;
-    while(percentTot < rand):
-        index += 1
-        percentTot += percents[index]
-    return (occs[index])
+def get_rand(jobs):  # randomly choose a job
+    keys = []
+    for key in jobs.keys():
+        keys.append(key)    # create a list of keys(jobs)
+    return choice(keys[0:-1])   # choose a random job from list
 
-@app.route("/occupations")
-def occupations():
-	jobs_dict = linesToDict(readlines())
-	return render_template("occupations.html", jobs=jobs_dict, select=random_occupation(jobs_dict))
+@app.route("/")
+def home(): # creates an unnecessary home page with a link to assignment
+    return "<a href = occupations>Click here for occupations</a>"
 
-if __name__ == "__main__":
-	print(linesToDict(readlines()))
-	app.debug = True
-	app.run()
+@app.route("/occupations") 
+def occupations(): # uses template to create the table
+    header, jobs = parse_jobs_csv()
+    return render_template('occupations.html', random = get_rand(jobs), jobs = jobs, header = header)
+
+if __name__ == "__main__": 
+    app.debug = True    # Set False for production
+    app.run()
