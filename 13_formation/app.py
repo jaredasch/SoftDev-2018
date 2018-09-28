@@ -6,9 +6,13 @@ app = Flask(__name__)
 def index():
 	return render_template("form.html")
 
-@app.route("/greet")
+@app.route("/greet", methods=["GET", "POST"])
 def greet():
-	return render_template("greet.html", username = request.args["username"], method = request.method)
+	if request.method == "GET":
+		username = request.args["username"]
+	else:
+		username = request.form["username"]
+	return render_template("greet.html", username = username, method = request.method)
 
 if __name__ == "__main__":
 	app.debug = True;
