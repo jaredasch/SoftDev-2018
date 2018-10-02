@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+	{% set msgs = get_flashed_messages() %}
+	{% for msg in msgs %}
+	<h2>{{ msg }}</h2>
+	{% endfor %}
+	</br>
+	<form method="POST" action="/login">
+		<input type="text" name="username"></br></br>
+		<input type="password" name="password"></br></br>
+		<input type="submit" name="subl" value="login">
+	</form>
+{% endblock %}
