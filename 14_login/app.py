@@ -4,7 +4,7 @@ from os import urandom
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
-users = {"jaredasch":"passy"}
+users = {"jaredasch":"pass"}
 
 @app.route("/")
 def index():
