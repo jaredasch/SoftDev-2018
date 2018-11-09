@@ -24,14 +24,19 @@
         </div>
 
         <div class = "intro" style="padding:30px">
-        <p>   So you want to try Foundation, huh? Well you've come to the right place! </p>
-        <p>   To get started, simply copy <br>
-          <code>
-            &lt;link href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.min.css" type= "text/css" rel = "stylesheet"/ &gt;
-          </code> <br>
-          into the <code> &lt;head&gt; &lt;/head&gt;</code> of your HTML file. This is much faster and more efficient than downloading the files and storing them locally. </p>
-
-        </div>
+			<h4> About Foundation </h4>
+			<p> Foundation is a type of
+				<span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex=1 title="They provide features that increase the standardization and common functionality to a group of web pages by helping to make them look good and interactive. Some examples are Foundation and Bootstrap.">front-end framework</span>. You can work with HTML, CSS, or JavaScript. Foundation provides responsive UI componenets, templates, and code snippets. We will be showcasing some of the cooler features of Foundation that are completely JS free!
+			</p>
+			<hr />
+			<h4> Setting it up </h4>
+			<p>   To get started, simply copy the following code into the <code> &lt;head&gt; &lt;/head&gt;</code> of your HTML file. This is a CDN (Content Delivery Network)- a network of servers linked together with the goal of delivering content quickly, cheaply, reliably, and securely. Compared to the alternative( downloading the files and storing them locally) this is much faster and more efficient. You can find the complete version <a href = "https://foundation.zurb.com/sites/download/"> here</a>. <br>
+				<code>
+				&lt;link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.min.css" type="text/css" rel="stylesheet"/&gt;
+				</code> <br>
+			</p>
+			<hr />
+		</div>
 
         <div class = "grid-x grid-padding-x">
             <div class = "cell large-4 medium-4 small-4">
@@ -101,8 +106,38 @@
                         <label>
                             <input type = "submit" class = "button" value = "Submit Button"/>
                         </label>
+                        <h5>How to make groovy inputs</h5>
+                        <code>
+                            &lt;label&gt;Input Heading <br>
+                            &lt;input type = &quot;Your type&quot; placeholder=&quot;Your placeholder&quot;/&gt;<br>
+                            &lt;/label&gt;
+                        </code>
                     </form>
                 </div>
+                <div class = "callout">
+                    <h4> XY Grid </h4>
+                    <p> The XY Grid has multiple grid types, like margin grid, padding grid, frame grid, block grid, and vertical grid. It works similarly to the standard float grid, but includes a number of useful features like horizontal and vertical alignment and autosizing.</p>
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell" style="background: #1779ba;color: #fefefe; padding: 5px;">12 cells</div>
+                    </div>
+                    <br>
+                    <div class="grid-x">
+                        <div class="cell small-6" style="background: #1779ba;color: #fefefe; padding: 5px;">6 cells</div>
+                        <div class="cell small-6" style="background: #d6ecfa; padding: 5px;">6 cells</div>
+                    </div>
+                    <br>
+                    <div class="grid-x">
+                        <div class="cell small-4" style="background: #1779ba;color: #fefefe; padding: 5px;">4 cells</div>
+                        <div class="cell small-8" style="background: #d6ecfa; padding: 5px;">8 cells</div>
+                    </div>
+                </div>
+            </div>
+            <div class = "cell small-12">
+                <hr />
+                <h4 style="padding-left:30px"> Additional Resources </h4>
+                <p style="padding-left:30px"> For additional information, visit the <a href= "https://foundation.zurb.com/sites/docs/"> Foundation Documentation</a>.
+                    This website was brought to you by Jared Asch and Maggie Zhao.
+                </p>
             </div>
         </div>
 
