@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<link href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.min.css" type= "text/css" rel = "stylesheet" />
+        <title></title>
+    </head>
+    <body>
+    	<div class = "grid-x grid-margin-x">
+    		{% for team in teams %}
+            <div class = "cell card large-2 medium-3 small-4">
+                <div class="card-section">
+                	<a href = "{{ team['website'] }}"> <h4> {{ team['name'] }}</h4> </a>
+                	<p> {{ team['address'] }} </p>
+                	<p> {{ team['phone'] }} </p>
+            	</div>
+			</div>
+			{% endfor %}
+        </div>
+    </body>
+</html>
