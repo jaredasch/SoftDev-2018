@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<link href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.min.css" type= "text/css" rel = "stylesheet" />
+        <title></title>
+    </head>
+    <body style="padding:20px;">
+    	<div class = "grid-x grid-padding-x grid-margin-x">
+            <h1 class = "cell large-12 medium-12 small-12">Daily Dashboard</h1>
+            <div class = "cell callout large-6 medium-6 small-12">
+                <h3>Bored? Try This</h3>
+                <p><strong>Activity: </strong>{{ bored_data['activity'] }}</p>
+                <p><strong>Type: </strong>{{ bored_data['type'] }}</p>
+                <p><strong>Participants: </strong>{{ bored_data['participants'] }}</p>
+			</div>
+            <div class = "cell callout large-6 medium-6 small-12">
+                <h3>Today's Weather</h3>
+                <p><strong>Summary: </strong>{{ weather['summary'] }}</p>
+                <p><strong>Chance of Precipitation: </strong>{{ bored_data['precipProbability'] }}</p>
+                <p><strong>Humidity: </strong>{{ bored_data['humidity'] }}</p>
+            </div>
+            <div class = "cell callout large-6 medium-6 small-12">
+                <h3>Today's XKCD</h3>
+                <p><strong>{{ xkcd['title'] }}</strong></p>
+                <img src = "{{ xkcd['img'] }}" alt = "{{ xkcd['alt'] }}"/>
+            </div>
+        </div>
+    </body>
+</html>
