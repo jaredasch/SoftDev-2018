@@ -1,0 +1,9 @@
+[submodule "P01_Hax4Snax"]
+	path = P01_Hax4Snax
+	url = https://github.com/jaredasch/hax4snax.git
+[submodule "P00_Blog"]
+	path = P00_Blog
+	url = https://github.com/jaredasch/SoftDev-Blog.git
+[submodule "P02_EventCalendar"]
+	path = P02_EventCalendar
+	url = https://github.com/jaredasch/SoftDev-FinalProject.git
